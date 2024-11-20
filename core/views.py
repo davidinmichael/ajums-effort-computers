@@ -10,3 +10,8 @@ class HomePage(View):
 class AboutPage(View):
 	def get(self, request):
 		return render(request, "core/about.html")
+	
+
+class ContactPage(View):
+	def get(self, request):
+		return render(request, "core/contact.html")
