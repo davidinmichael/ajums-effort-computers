@@ -15,3 +15,8 @@ class AboutPage(View):
 class ContactPage(View):
 	def get(self, request):
 		return render(request, "core/contact.html")
+
+
+class ProductPage(View):
+	def get(self, request):
+		return render(request, "core/products.html")
