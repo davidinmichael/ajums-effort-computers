@@ -7,7 +7,7 @@
           <div class="logo">
             <img
               src="{% static 'images/white-logo.png' %}"
-              alt="hexashop ecommerce templatemo"
+              alt="Ajums Effort Computers Logo"
             />
           </div>
           <ul>
@@ -25,15 +25,15 @@
           <li><a href="#">Dell</a></li>
           <li><a href="#">HP</a></li>
           <li><a href="#">Accessories</a></li>
+          <li><a href="#">Softwares</a></li>
         </ul>
       </div>
       <div class="col-lg-3">
         <h4>Useful Links</h4>
         <ul>
-          <li><a href="#">Homepage</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Help</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="{% url 'home' %}">Homepage</a></li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
         </ul>
       </div>
       <div class="col-lg-3">
