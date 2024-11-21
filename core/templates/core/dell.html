@@ -45,7 +45,7 @@
                             <img src="{{ product.front_img.url }}" alt="">
                         </div>
                         <div class="down-content">
-                            <h4>{{ product.name }}</h4>
+                            <h4><a href="{% url 'product-details' product.id %}">{{ product.name }}</a></h4>
                             <span>NGN{{ product.price  }}</span>
                             <ul class="stars">
                                 <p>{{ product.status }}</p>

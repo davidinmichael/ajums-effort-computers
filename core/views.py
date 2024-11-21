@@ -50,3 +50,12 @@ class HPProducts(View):
 			"products": products,
 		}
 		return render(request, "core/hp.html", context)
+
+
+class ProductDetails(View):
+	def get(self, request, pk):
+		product = Product.objects.get(id=pk)
+		context = {
+			"product": product,
+		}
+		return render(request, "core/single-product.html", context)
