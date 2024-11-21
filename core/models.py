@@ -49,17 +49,12 @@ class Product(BaseModel):
 	def save(self, *args, **kwargs):
 		if not self.product_id:
 			self.product_id = generate_product_id(10)
-		super().save(*args, **kwargs)
-
-		if self.front_img:
-			self.process_image(self.front_img.path)
-		if self.back_img:
-			self.process_image(self.back_img.path)
+		return super().save(*args, **kwargs)
 
 	def process_image(self, image_path):
 		with Image.open(image_path) as img:
-			if img.height > 390 or img.width > 370:
-				output_size = (390, 370)
-				img.thumbnail(output_size)
-				img.save(image_path)
+			# if img.height > 390 or img.width > 370:
+			output_size = (390, 370)
+			img.resize(output_size)
+			img.save(image_path)
 

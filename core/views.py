@@ -25,3 +25,21 @@ class ProductPage(View):
 			"products": products,
 		}
 		return render(request, "core/products1.html", context)
+
+
+class DellProducts(View):
+	def get(self, request):
+		products = Product.objects.filter(category="dell").order_by("-id")
+		context = {
+			"products": products,
+		}
+		return render(request, "core/dell.html", context)
+	
+
+class HPProducts(View):
+	def get(self, request):
+		products = Product.objects.filter(category="hp").order_by("-id")
+		context = {
+			"products": products,
+		}
+		return render(request, "core/hp.html", context)

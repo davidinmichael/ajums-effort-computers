@@ -10,11 +10,18 @@
             <img src="{% static 'images/logo.png' %}" />
           </a>
           <!-- ***** Logo End ***** -->
-           
+
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
             <li><a href="{% url 'home' %}" class="active">Home</a></li>
-            <li><a href="{% url 'products' %}">Laptops</a></li>
+            <li class="submenu">
+              <a href="javascript:;">Laptops</a>
+              <ul>
+                <li><a href="{% url 'dell' %}">Dell</a></li>
+                <li><a href="{% url 'hp' %}">HP</a></li>
+                <li><a href="{% url 'products' %}">Explore All</a></li>
+              </ul>
+            </li>
             <li><a href="{% url 'products' %}">Accessories</a></li>
             <li><a href="{% url 'products' %}">Softwares</a></li>
             <li><a href="{% url 'about' %}">About Us</a></li>
