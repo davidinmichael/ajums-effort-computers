@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
+from .models import Product
 
 class HomePage(View):
 	def get(self, request):
@@ -19,4 +20,8 @@ class ContactPage(View):
 
 class ProductPage(View):
 	def get(self, request):
-		return render(request, "core/products.html")
+		products = Product.objects.all().order_by("-id")
+		context = {
+			"products": products,
+		}
+		return render(request, "core/products1.html", context)
