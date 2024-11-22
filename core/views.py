@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
+from django.urls import reverse
 
 from .models import Product
+from .forms import AddProductForm
 
 class HomePage(View):
 	def get(self, request):
@@ -59,3 +61,16 @@ class ProductDetails(View):
 			"product": product,
 		}
 		return render(request, "core/single-product.html", context)
+	
+
+class AddProducts(View):
+	def get(self, request):
+		return render(request, "core/add-product.html")
+	
+	def post(self, request):
+		form = AddProductForm(request.POST, request.FILES)
+		if form.is_valid():
+			product = form.save()
+			url = reverse("product-details", args=[product.id])
+			return redirect(url)
+		return render(request, "core/add-product.html")
