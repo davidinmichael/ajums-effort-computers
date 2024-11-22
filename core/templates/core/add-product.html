@@ -26,6 +26,7 @@
     method="post"
     enctype="multipart/form-data"
   >
+  {% csrf_token %}
     <div class="form-group">
       <label for="name">Name:</label>
       <input
@@ -44,7 +45,6 @@
         name="description"
         placeholder="Enter product description"
         rows="4"
-        required
       ></textarea>
     </div>
 
@@ -56,7 +56,6 @@
         name="price"
         placeholder="Enter product price"
         step="0.01"
-        required
       />
     </div>
 
@@ -67,7 +66,6 @@
         id="front_img"
         name="front_img"
         accept="image/*"
-        required
       />
     </div>
 
@@ -78,27 +76,26 @@
         id="back_img"
         name="back_img"
         accept="image/*"
-        required
       />
     </div>
 
     <div class="form-group">
       <label for="status">Status:</label>
-      <select id="status" name="status" required>
+      <select id="status" name="status">
         <option value="">Select status</option>
-        <option value="active">Active</option>
-        <option value="inactive">Inactive</option>
+        <option value="available">Available</option>
+        <option value="unavailable">Unavailable</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="category">Category:</label>
-      <select id="category" name="category" required>
+      <select id="category" name="category">
         <option value="">Select category</option>
-        <option value="electronics">Electronics</option>
-        <option value="fashion">Fashion</option>
-        <option value="home">Home</option>
-        <option value="books">Books</option>
+        <option value="dell">Dell</option>
+        <option value="hp">HP</option>
+        <option value="software">Software</option>
+        <option value="accessory">Accessory</option>
         <!-- Add more categories as needed -->
       </select>
     </div>
