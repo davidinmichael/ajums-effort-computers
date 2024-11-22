@@ -52,6 +52,15 @@ class HPProducts(View):
 			"products": products,
 		}
 		return render(request, "core/hp.html", context)
+	
+
+class Accessories(View):
+	def get(self, request):
+		products = Product.objects.filter(category="accessory").order_by("-id")
+		context = {
+			"products": products,
+		}
+		return render(request, "core/accessories.html", context)
 
 
 class ProductDetails(View):
